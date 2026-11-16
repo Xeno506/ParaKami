@@ -1,0 +1,673 @@
+/* =================================== */
+/* 1. CONFIGURACIÓN GENERAL */
+/* =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =================================== */
+/* 2. FONDO DE LA PÁGINA */
+/* =================================== */
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #2b0614,
+        #680d2b,
+        #a51d45
+    );
+
+    font-family: Georgia, serif;
+    color: white;
+}
+
+
+/* =================================== */
+/* 3. CONTENEDOR PRINCIPAL */
+/* =================================== */
+
+main {
+    width: 100%;
+    padding: 20px;
+}
+
+
+/* =================================== */
+/* 4. PANTALLA DE INICIO */
+/* =================================== */
+
+.pantalla-inicio {
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+    padding: 50px 25px;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+
+    box-shadow: 0 0 35px rgba(255, 20, 80, 0.2);
+}
+
+
+/* Texto superior */
+
+.subtitulo {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #ffc1d2;
+}
+
+
+/* Corazón */
+
+.corazon {
+    font-size: 75px;
+    color: #ff527d;
+    margin: 25px 0;
+    text-shadow: 0 0 25px #ff174f;
+}
+
+
+/* Título */
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+
+/* Mensaje */
+
+.mensaje {
+    font-size: 17px;
+    color: #f8dce5;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+
+/* Botones generales */
+
+button {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #ff527d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff7899;
+    transform: scale(1.05);
+}
+
+
+/* Firma */
+
+.firma {
+    margin-top: 30px;
+    font-size: 13px;
+    color: #eeb5c5;
+}
+
+
+/* =================================== */
+/* 5. SEGUNDA PANTALLA: CORAZÓN */
+/* =================================== */
+
+.pantalla-corazon {
+    display: none;
+    text-align: center;
+    width: 100%;
+    animation: aparecer 1.5s ease;
+}
+
+.texto-corazon {
+    font-size: 20px;
+    color: #ffd6e1;
+    margin-bottom: 40px;
+}
+
+
+/* Área donde se formará el corazón */
+
+.contenedor-corazon {
+    position: relative;
+    width: 280px;
+    height: 260px;
+    margin: auto;
+}
+
+
+/* Corazoncitos individuales */
+
+.mini-corazon {
+    position: absolute;
+    color: #ff527d;
+    font-size: 15px;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 10px #ff174f;
+    animation: latido 1.2s infinite alternate;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.texto-final {
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+
+/* =================================== */
+/* 6. PANTALLA DE LA GALERÍA */
+/* =================================== */
+
+.pantalla-galeria {
+    display: none;
+    width: 100%;
+    max-width: 750px;
+    margin: auto;
+    padding: 30px 15px;
+    text-align: center;
+    animation: aparecer 1.5s ease;
+}
+
+.pantalla-galeria h2 {
+    font-size: 32px;
+    margin: 20px 0;
+    color: #ffe5ec;
+}
+
+.descripcion-galeria {
+    color: #f8dce5;
+    font-size: 16px;
+    margin-bottom: 35px;
+    line-height: 1.5;
+}
+
+
+/* Distribución de las fotografías */
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+
+/* Tarjetas estilo Polaroid */
+
+.polaroid {
+    width: 210px;
+    padding: 10px 10px 20px;
+    background: #fff8f5;
+    border-radius: 3px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.polaroid:nth-child(2) {
+    transform: rotate(2deg);
+}
+
+.polaroid:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+
+/* Fotografías */
+
+.polaroid img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* Dedicatorias */
+
+.polaroid p {
+    color: #68152e;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+/* Botón para entrar a la carta */
+
+#btnIrCarta {
+    margin-top: 15px;
+    padding: 15px 30px;
+    background: #ff527d;
+    color: white;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+
+/* =================================== */
+/* 7. PANTALLA DE LA CARTA */
+/* =================================== */
+
+.pantalla-carta {
+    display: none;
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+    animation: aparecer 1.5s ease;
+}
+
+.pantalla-carta h2 {
+    color: #ffe5ec;
+    font-size: 30px;
+    margin: 20px 0;
+}
+
+.descripcion-carta {
+    color: #f8dce5;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+
+/* =================================== */
+/* 8. DISEÑO DEL SOBRE */
+/* =================================== */
+
+.sobre {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    margin: 70px auto 20px;
+
+    background: #f8c5d2;
+    border-radius: 5px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+
+/* Parte inferior del sobre */
+
+.sobre::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    border-left: 140px solid #e99aaf;
+    border-right: 140px solid #e99aaf;
+    border-top: 90px solid transparent;
+
+    z-index: 3;
+}
+
+
+/* Solapa */
+
+.solapa {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 100px solid #d97996;
+
+    transform-origin: top;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+
+    z-index: 4;
+}
+
+
+/* Papel dentro del sobre */
+
+.papel {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+
+    width: 250px;
+    height: 145px;
+
+    background: #fff8f5;
+    border-radius: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #8a2945;
+    font-family: Georgia, serif;
+    font-size: 20px;
+
+    z-index: 2;
+
+    transition: transform 1s ease;
+}
+
+
+/* =================================== */
+/* 9. ANIMACIÓN DEL SOBRE */
+/* =================================== */
+
+.sobre.abierto .solapa {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.sobre.abierto .papel {
+    transform: translateY(-120px);
+}
+
+
+/* =================================== */
+/* 10. CARTA COMPLETA */
+/* =================================== */
+
+.carta-completa {
+    display: none;
+
+    width: 100%;
+    max-width: 550px;
+
+    margin: 30px auto;
+    padding: 40px 35px;
+
+    background: #fff8ed;
+    color: #67283b;
+
+    border-radius: 8px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+
+    font-family: Georgia, serif;
+    text-align: left;
+    line-height: 1.9;
+
+    animation: aparecer 1.5s ease;
+}
+
+.encabezado-carta {
+    text-align: center;
+    color: #b45a75;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.carta-completa h2 {
+    text-align: center;
+    color: #9b3152;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.contenido-carta {
+    margin-top: 20px;
+}
+
+.texto-carta {
+    font-size: 16px;
+    margin-bottom: 20px;
+
+    opacity: 0;
+    transform: translateY(12px);
+
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.texto-carta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.firma-carta {
+    text-align: right;
+    font-style: italic;
+    font-size: 17px;
+    color: #9b3152;
+    margin-top: 35px;
+
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.firma-carta.visible {
+    opacity: 1;
+}
+
+.decoracion-carta {
+    text-align: center;
+    color: #e65b80;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+
+/* =================================== */
+/* 11. PANTALLA FINAL */
+/* =================================== */
+
+.pantalla-final {
+    display: none;
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    padding: 50px 25px;
+    text-align: center;
+    animation: aparecer 1.5s ease;
+}
+
+.pantalla-final h2 {
+    color: #ffe5ec;
+    font-family: Georgia, serif;
+    font-size: 32px;
+    margin: 25px 0;
+}
+
+.mensaje-final {
+    color: #f8dce5;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.corazon-final {
+    color: #ff527d;
+    font-size: 75px;
+    margin: 30px 0;
+    animation: latido 1.3s infinite;
+    text-shadow: 0 0 25px rgba(255, 82, 125, 0.6);
+}
+
+.corazones-finales {
+    font-size: 35px;
+    margin-bottom: 20px;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.firma-final {
+    color: #ffb4c8;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-style: italic;
+    margin-top: 35px;
+}
+
+/* Animación del corazón */
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Animación flotante */
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Boton para la panatalla final */
+
+.btn-final {
+    display: none;
+    margin: 25px auto;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ff527d, #b83259);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 82, 125, 0.3);
+    animation: aparecer 1.5s ease;
+}
+
+.btn-final:hover {
+    transform: scale(1.05);
+}
+
+/* =================================== */
+/* 12. ANIMACIONES */
+/* =================================== */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes latido {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+
+/* =================================== */
+/* 13. ADAPTACIÓN PARA CELULARES */
+/* =================================== */
+
+@media (max-width: 480px) {
+
+    main {
+        padding: 12px;
+    }
+
+    .pantalla-inicio {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .mensaje {
+        font-size: 16px;
+    }
+
+    .corazon {
+        font-size: 65px;
+    }
+
+    button {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .contenedor-corazon {
+        transform: scale(0.9);
+        transform-origin: center;
+    }
+
+    .galeria {
+        gap: 25px;
+    }
+
+    .polaroid {
+        width: min(230px, 85%);
+    }
+
+    .polaroid img {
+        height: 210px;
+    }
+
+    .pantalla-carta {
+        padding: 30px 10px;
+    }
+
+    .pantalla-carta h2 {
+        font-size: 25px;
+    }
+
+    .sobre {
+        transform: scale(0.9);
+        transform-origin: center;
+    }
+
+    .carta-completa {
+        padding: 25px 20px;
+    }
+
+    .carta-completa p {
+        font-size: 15px;
+    }
+
+}
